@@ -17,7 +17,7 @@
 
 ## 随源码附带的主题资源
 
-- `assets/themes/van-gogh-irises-1889.jpg`：Vincent van Gogh《Irises》，1889，Getty 藏品 90.PA.20；[馆藏记录](https://www.getty.edu/art/collection/object/103JNH)，[Commons 复制图记录](https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Irises_-_Google_Art_Project.jpg)。3840 × 2965，原文件未改色／重绘；SHA256 `97D421FBFC16F70FE39263C63F2D716E4AE03CF49C8E05506FD989222FD9898C`。
+- `assets/themes/van-gogh-irises-1889.jpg`：Vincent van Gogh《Irises》，1889，Getty 藏品 90.PA.20；[馆藏记录](https://www.getty.edu/art/collection/object/103JNH)，[Getty 对此画的 Open Content 说明](https://www.getty.edu/news/five-ways-of-seeing-van-goghs-irises/)。3840 × 2965，原文件未改色／重绘；SHA256 `97D421FBFC16F70FE39263C63F2D716E4AE03CF49C8E05506FD989222FD9898C`。不与 1890 年瓶插鸢尾花混淆。
 - `assets/themes/henry-moore-a-breezy-day-1887.jpg`：Henry Moore（1831–1895，海景画家，非同名雕塑家）《A Breezy Day》，1887，Lady Lever Art Gallery，LL 3626；[Art UK 馆藏记录](https://artuk.org/discover/artworks/a-breezy-day-102598)，[Commons 复制图记录](https://commons.wikimedia.org/wiki/File:Henry_Moore_(1831-1895)_-_A_Breezy_Day_-_LL_3626_-_Lady_Lever_Art_Gallery.jpg)。1000 × 581，原文件未改色／重绘；SHA256 `C6E64A525423EB4287065707EB2122A44243CC0AE72C1BBD75E42C1C756EFB6A`。
 
 以上沿用私人版已记录的公共领域平面画作复制图，保留原画作者、馆藏与出处，展框与聚焦光是界面效果。维护者正式发布前仍需复查复制图文件页及发布法域，而不是仅凭画家卒年断言一切权利。馆藏记录的文字与网站内容不因链接被项目认领。
