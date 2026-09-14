@@ -1,0 +1,63 @@
+/* 以内容为尺度，两套风格共用。保留衬线与字重。 */
+[hidden] { display: none !important; }
+.page, .today-grid > *, .review-grid > *, .literary-panel > *, .archive-card { min-width: 0; }
+.review-grid, .style-codex .review-grid { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); }
+.today-grid, .style-codex .today-grid { grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); }
+.learn-compose textarea, #newlearn { min-height: 260px; line-height: 1.9; }
+textarea, .notebook-prose, .literary-text, .literary-translation, .literary-analysis{ user-select: text; overflow-wrap: anywhere; }
+.literary-panel input{ min-width: 0; max-width: 100%; }
+.notebook-search { display: flex; margin-bottom: 16px; }
+.notebook-search input { width: 100%; padding: 12px 16px; }
+.notebook-search input, .notebook-tag-field input, .notebook-tag-field textarea, .notebook-tag-field select, .notebook-followup-label textarea {
+  color: var(--text); background: var(--soft); border: 1px solid var(--line); border-radius: 10px;
+  font: inherit; min-width: 0;
+}
+.notebook-revisit { padding: 16px 18px; margin-bottom: 18px; border: 1px solid var(--line); border-radius: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.notebook-revisit .page-kicker { width: 100%; }
+.notebook-revisit .notebook-muted { flex-basis: 100%; }
+.notebook-muted { font-size: 12px; color: var(--sub); }
+#archive-grid { grid-template-columns: minmax(0,1fr); gap: 10px; }
+.notebook-archive { padding: 0; border: 1px solid var(--line); overflow: hidden; animation: none; }
+.notebook-archive-summary { padding: 17px 20px; cursor: pointer; display: flex; gap: 12px; align-items: center; }
+.notebook-archive-summary::after { content: '+'; color: var(--sub); margin-left: auto; }
+.notebook-archive[open] > summary::after { content: '−'; }
+.notebook-archive-summary strong { flex: 1; font-size: 16px; overflow-wrap: anywhere; }
+.notebook-archive-summary::-webkit-details-marker { display: none; }
+.notebook-archive-body { padding: 0 22px 22px; border-top: 1px solid var(--line); }
+.notebook-label { font-size: 12px; color: var(--sub); margin: 20px 0 8px; }
+.notebook-prose { white-space: pre-wrap; font-size: 16px; line-height: 1.95; max-width: 70ch; }
+.notebook-archive-body > button { margin: 12px 10px 0 0; }
+.notebook-archive-body > a { display: inline-block; margin-top: 16px; color: var(--accent); }
+.notebook-tag-field, .notebook-followup-label { display: flex; flex-direction: column; gap: 8px; margin: 16px 0 8px; font-size: 13px; }
+.notebook-tag-field input, .notebook-tag-field textarea, .notebook-tag-field select, .notebook-followup-label textarea { padding: 10px 12px; width: 100%; resize: vertical; }
+.notebook-versions { margin-top: 18px; padding: 12px; border: 1px solid var(--line); }
+.notebook-versions summary { cursor: pointer; }
+.notebook-checkbox { display: flex; align-items: center; gap: 9px; cursor: pointer; }
+.notebook-checkbox input { accent-color: var(--accent); }
+.notebook-focus-toggle { align-self: center; background: transparent; border: 1px solid var(--line); white-space: nowrap; }
+.style-codex .page-tabs .notebook-focus-toggle { color: #c2beb5; border-color: #514e46; margin-top: 12px; }
+.notebook-focus > .notebook-focus-toggle { position: fixed; right: 28px; bottom: 12px; z-index: 20; background: var(--bg); }
+.style-codex .brand::after { content: 'PAPER EDITION'; }
+.notebook-focus .app-shell, .style-codex.notebook-focus .app-shell { grid-template-columns: minmax(0,1fr); grid-template-rows: minmax(0,1fr); height: 100vh; padding: 22px 24px 58px; }
+.notebook-focus .app-shell > header, .notebook-focus .page-tabs, .notebook-focus .foot { display: none; }
+.notebook-focus .pages, .style-codex.notebook-focus .pages { grid-row: 1; grid-column: 1; }
+.notebook-focus .page { padding: 16px 24px 40px; }
+.style-codex .notebook-revisit, .style-codex .notebook-search input, .style-codex .notebook-tag-field input, .style-codex .notebook-tag-field textarea { border-radius: 3px; }
+.style-codex .page { transition-duration: .22s, .3s, .22s, 0s; filter: none; }
+.style-codex .page.active { transition-delay: 0s; }
+.settings-panel { max-width: calc(100vw - 32px); }
+:where(button, input, textarea, select, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 1140px) {
+  .review-grid, .style-codex .review-grid { grid-template-columns: minmax(0,1fr); }
+  .review-side { grid-row: 1; }
+  .review-intro .page-note { font-size: 13px; }
+}
+@media (max-width: 940px) {
+  .today-grid, .style-codex .today-grid { grid-template-columns: minmax(0,1fr); }
+  .notebook-archive-summary { flex-wrap: wrap; }
+  .notebook-archive-summary .archive-date { width: 100%; }
+  .notebook-focus .app-shell { min-height: 100vh; height: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

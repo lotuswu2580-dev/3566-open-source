@@ -1,0 +1,73 @@
+body.mode-dark {
+  --bg: #11110f;
+  --soft: #1b1b18;
+  --line: rgba(255,255,255,.09);
+  --text: #f1eee6;
+  --sub: #9a968e;
+  --accent: #ff5362;
+  --accent-soft: rgba(255,83,98,.12);
+  --green: #65c991;
+  background: #11110f;
+  color: var(--text);
+  color-scheme: dark;
+}
+.mode-dark .app-shell { background: #11110f; }
+.mode-dark header { background: #151512; }
+.mode-dark .card { background: #1b1b18; border-color: rgba(255,255,255,.08); box-shadow: none; }
+.mode-dark .row + .row { border-color: rgba(255,255,255,.075); }
+.mode-dark .box { border-color: rgba(255,255,255,.35); }
+.mode-dark .inputrow input, .mode-dark textarea { color: var(--text); }
+.mode-dark .learn-compose { background: #121210; border-color: rgba(255,255,255,.12); }
+.mode-dark .learn-save { background: var(--accent); color: #fff; }
+.mode-dark .archive-filter { background: rgba(255,255,255,.04); }
+.mode-dark .archive-filter.active { background: var(--text); color: #11110f; }
+.mode-dark .archive-card { background: #1b1b18; border-color: rgba(255,255,255,.08); }
+.mode-dark .archive-empty { border-color: rgba(255,255,255,.12); }
+.mode-dark .reward-mode-switch { background: rgba(255,255,255,.06); }
+.mode-dark .reward-mode-btn.active { background: var(--text); color: #11110f; }
+.mode-dark .literary-card { background: #1b1b18; border-color: rgba(255,255,255,.08); }
+.mode-dark #literary-draft { background: #121210; border-color: rgba(255,255,255,.12); }
+.mode-dark .literary-button { background: rgba(255,255,255,.08); color: var(--text); }
+.mode-dark .literary-button.primary { background: var(--accent); color: #fff; }
+.mode-dark #reward .art { background: #0d0d0c; }
+.mode-dark #reward .art-desc { color: #d2cec5; }
+.mode-dark #reward textarea { background: #121210; border-color: rgba(255,255,255,.12); }
+.mode-dark .advisor { background: #1b1b18; border-color: rgba(255,255,255,.08); }
+.mode-dark #advisor-input { background: #121210; border-color: rgba(255,255,255,.12); color: var(--text); }
+.mode-dark .advisor-chip { color: var(--sub); }
+.mode-dark .advisor-msg.model { color: var(--text); }
+.mode-dark .reward-lock { border-color: rgba(255,255,255,.16); }
+.mode-dark .foot { background: linear-gradient(transparent, #11110f 50%); }
+
+.mode-dark.style-codex {
+  --bg: #121210;
+  --soft: rgba(255,255,255,.045);
+  --line: rgba(255,255,255,.11);
+  --text: #f1eee5;
+  --sub: #928e86;
+  --accent: #d04b40;
+  --accent-soft: rgba(208,75,64,.14);
+  --green: #71c69a;
+  --ink: #080807;
+  --paper: #171714;
+}
+.mode-dark.style-codex .card { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.09); }
+.mode-dark.style-codex .streak { background: #a9362f; }
+.mode-dark.style-codex .pomo { background: #080807; }
+.mode-dark.style-codex #reward textarea { background: rgba(0,0,0,.22); }
+.mode-dark.style-codex .advisor { background: rgba(255,255,255,.04); }
+.mode-dark.style-codex #advisor-input { background: rgba(0,0,0,.22); }
+.mode-dark.style-codex .reward-lock { background: rgba(255,255,255,.025); }
+.mode-dark.style-codex .learn-compose { background: rgba(0,0,0,.22); }
+.mode-dark.style-codex .archive-card { background: rgba(255,255,255,.04); }
+.mode-dark.style-codex .literary-card { background: rgba(255,255,255,.04); }
+.mode-dark.style-codex #literary-draft { background: rgba(0,0,0,.22); }
+
+body, .app-shell, header, .card, .page-tabs, .page-tab, input, textarea, button {
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: .32s;
+  transition-timing-function: ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

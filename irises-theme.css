@@ -1,0 +1,268 @@
+/* A complete painting exhibited on a spotlit museum wall; no tint over the artwork. */
+body[data-visual-style="irises"] {
+  --bg:#252924;--soft:#f3efe3;--text:#f0ead9;--sub:#c2c4b5;--line:#4a5043;
+  --accent:#bfcbff;--accent-soft:#39445e;--green:#b8c891;--mt-on:#253259;
+  --mt-pop:#b4b57f;--mt-side:#30362e;--mt-radius:8px;
+  --iris-linen:#252924;--iris-thread:rgba(213,207,172,.022);--iris-rim:#b5a175;
+  --iris-leaf:#343e2e;--iris-leaf-text:#e3e6cb;--iris-edge:#65583c;
+  --iris-card-text:#293b35;--iris-card-sub:#626854;--iris-card-accent:#394d91;--iris-card-line:#d0d0bb;
+  --iris-card-on:#fffdf2;--iris-card-accent-soft:#e2e6f1;--iris-card-green:#526a4c;
+  --iris-wall:#252924;--iris-light:rgba(247,229,180,.18);--iris-gold:#d9c391;
+  background:var(--bg);color:var(--text);
+}
+body.mode-dark[data-visual-style="irises"] {
+  --bg:#141915;--soft:#252e27;--text:#f1eedb;--sub:#c3cbb5;--line:#4e5c49;
+  --accent:#bdcafa;--accent-soft:#354266;--green:#bacb9b;--mt-on:#253259;
+  --mt-pop:#a4b371;--mt-side:#303e34;--iris-linen:#28332c;--iris-thread:rgba(213,207,172,.025);
+  --iris-rim:#596550;--iris-leaf:#374830;--iris-leaf-text:#d7e1bd;--iris-edge:#71785d;
+  --iris-card-text:#f1eedb;--iris-card-sub:#c3cbb5;--iris-card-accent:#bdcafa;--iris-card-line:#4e5c49;
+  --iris-card-on:#253259;--iris-card-accent-soft:#354266;--iris-card-green:#bacb9b;
+  --iris-wall:#141915;--iris-light:rgba(247,229,180,.12);--iris-gold:#d9c391;
+}
+.iris-scene,.iris-credit { display:none; }
+body[data-visual-style="irises"] .app-shell { padding:18px 28px 42px; }
+body[data-visual-style="irises"] header {
+  position:relative;isolation:isolate;flex:none;min-height:224px;margin:0 0 18px;padding:28px 26px;
+  display:flex;justify-content:space-between;align-items:center;gap:46%;border:1px solid var(--line);
+  border-radius:3px;background-color:var(--iris-linen);
+  background-image:repeating-linear-gradient(0deg,transparent 0 3px,var(--iris-thread) 3px 4px),repeating-linear-gradient(90deg,transparent 0 3px,var(--iris-thread) 3px 4px);
+}
+body[data-visual-style="irises"] .mast { width:23%;flex:none; }
+body[data-visual-style="irises"] header .brand { color:var(--text);font-size:18px;letter-spacing:.08em;line-height:1.5; }
+body[data-visual-style="irises"] header .meta { font-size:11px;line-height:1.8;margin-top:10px; }
+body[data-visual-style="irises"] .quote-wrap { width:23%;flex:none;text-align:left; }
+body[data-visual-style="irises"] .quote { font-size:13px;line-height:1.85;margin:0; }
+body[data-visual-style="irises"] .quote-by { font-size:11px;margin-top:9px; }
+body[data-visual-style="irises"] .iris-scene {
+  display:block;position:absolute;left:50%;top:50%;width:min(44%,480px);height:184px;transform:translate(-50%,-50%);margin:0;
+}
+.iris-window {
+  position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#788654;cursor:zoom-in;
+  box-shadow:0 0 0 2px var(--iris-rim),0 0 0 3px var(--iris-edge),0 3px 8px rgba(30,43,24,.14);
+}
+.iris-window-viewport {
+  display:block;position:absolute;inset:0;overflow:hidden;
+  clip-path:polygon(0 .5%,6% 0,17% .6%,31% 0,44% .5%,58% 0,73% .4%,87% 0,100% .5%,99.7% 24%,100% 52%,99.6% 75%,100% 99.5%,86% 100%,70% 99.4%,52% 100%,37% 99.5%,21% 100%,8% 99.5%,0 100%,.4% 73%,0 46%,.4% 21%);
+}
+.iris-window-image { display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform-origin:center;pointer-events:none; }
+.iris-window::after {
+  content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 2px 7px rgba(29,39,21,.22),inset 0 0 0 1px rgba(245,242,221,.45);
+}
+body[data-visual-style="irises"] .iris-credit { display:block;position:absolute;bottom:9px;left:26px;font-size:9px;letter-spacing:.12em;color:var(--sub); }
+body[data-visual-style="irises"] .page-tabs { align-self:stretch;background:var(--mt-side);border-radius:6px;padding:5px;gap:6px;margin-bottom:22px; }
+body[data-visual-style="irises"] .page-tab { padding:9px 15px;font-size:13px; }
+body[data-visual-style="irises"] .motion-nav-indicator { border-radius:4px; }
+body[data-visual-style="irises"] .today-grid { grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);gap:24px; }
+body[data-visual-style="irises"] .unit-head { margin:0 0 14px; }
+body[data-visual-style="irises"] .unit-head .sect { font-size:18px;letter-spacing:.04em; }
+body[data-visual-style="irises"] .row { padding:14px 19px;min-height:55px; }
+body[data-visual-style="irises"] #todos { border-top:3px solid var(--green); }
+body[data-visual-style="irises"] .streak { background:var(--iris-leaf);border-color:transparent;color:var(--iris-leaf-text);padding:16px 20px; }
+body[data-visual-style="irises"] .streak :is(.t2,.t2 i) { color:var(--iris-leaf-text); }
+body[data-visual-style="irises"] .ring .fill { stroke:var(--green); }
+body[data-visual-style="irises"] .pomo { padding:22px 18px;border-top:3px solid var(--accent); }
+/* The real flower is the protagonist; no second animated illustration competes with it. */
+body[data-visual-style="irises"] .motion-organism { display:none; }
+body[data-visual-style="irises"] .pomo .time { padding:12px 0 8px; }
+body[data-visual-style="irises"] .foot { background:none; }
+body[data-visual-style="irises"] :focus-visible { outline:2px solid var(--accent);outline-offset:4px; }
+.iris-settings-options { grid-template-columns:minmax(0,1fr); }
+.iris-style-option { display:flex;align-items:center;gap:20px; }
+.iris-style-preview {
+  display:block;flex:none;width:108px;height:64px;border:5px solid #ece6d8;box-shadow:0 0 0 1px #d2d3bf;
+  background-color:#252924;background-size:contain;background-position:center;background-repeat:no-repeat;
+}
+.settings-overlay:not(.open) .iris-style-preview { background-image:none !important; }
+.iris-art-dialog {
+  margin:auto;width:min(1100px,94vw);max-height:94vh;border:1px solid var(--line);border-radius:8px;padding:18px;
+  background:var(--soft);color:var(--text);box-shadow:0 24px 80px rgba(0,0,0,.3);overflow:auto;
+}
+.iris-art-dialog::backdrop { background:rgba(12,20,15,.76); }
+.iris-art-dialog[open] { animation:iris-dialog-in 360ms cubic-bezier(.2,.75,.2,1); }
+.iris-art-dialog-top { display:flex;justify-content:space-between;align-items:start;gap:20px;margin-bottom:14px; }
+.iris-art-dialog h2 { font-size:21px; }
+.iris-art-dialog p,.iris-art-dialog a { font-size:12px;color:var(--sub); }
+.iris-art-dialog img { display:block;width:100%;max-height:calc(94vh - 136px);object-fit:contain; }
+.iris-art-dialog-close { padding:8px 15px;border:1px solid var(--line);background:var(--accent-soft);color:var(--text);border-radius:4px;cursor:pointer;font-weight:800; }
+.iris-art-dialog a { display:inline-block;margin-top:12px;text-decoration:underline; }
+@keyframes iris-dialog-in { from { opacity:0;transform:translateY(12px); } to { opacity:1;transform:none; } }
+@media(max-width:1100px) {
+  body[data-visual-style="irises"] .page-tab { padding:9px 11px; }
+  body[data-visual-style="irises"] .quote { font-size:12px; }
+}
+@media(max-width:940px) {
+  body[data-visual-style="irises"] .today-grid { grid-template-columns:minmax(0,1fr); }
+}
+@media(max-width:820px) {
+  body[data-visual-style="irises"] .app-shell { padding:14px 18px 40px; }
+  body[data-visual-style="irises"] header { min-height:202px;padding:20px 16px; }
+  body[data-visual-style="irises"] .iris-scene { width:48%;height:166px; }
+  body[data-visual-style="irises"] .mast { width:21%; }
+  body[data-visual-style="irises"] header .brand { font-size:14px; }
+  body[data-visual-style="irises"] .quote-wrap { width:21%; }
+  body[data-visual-style="irises"] .quote { font-size:11px;line-height:1.65; }
+  body[data-visual-style="irises"] .quote-by { font-size:10px; }
+  body[data-visual-style="irises"] .iris-credit { left:16px;font-size:8px; }
+}
+@media(max-width:600px) {
+  body[data-visual-style="irises"] header { min-height:226px;align-items:flex-start;padding-top:13px;gap:0; }
+  body[data-visual-style="irises"] .mast { width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:12px; }
+  body[data-visual-style="irises"] header .meta { margin:0;font-size:10px; }
+  body[data-visual-style="irises"] .quote-wrap { display:none; }
+  body[data-visual-style="irises"] .iris-scene { width:72%;height:162px;top:58%; }
+  body[data-visual-style="irises"] .iris-credit { bottom:5px; }
+  body[data-visual-style="irises"] .page-tabs { gap:3px; }
+  body[data-visual-style="irises"] .page-tab { padding:8px 9px;font-size:12px; }
+  .iris-style-option { gap:14px; }
+}
+@media(prefers-reduced-motion:reduce) { .iris-art-dialog[open] { animation:none; } }
+
+/* The gallery wall continues behind the reading area, not just inside the banner. */
+body[data-visual-style="irises"] .app-shell {
+  position:relative;isolation:isolate;
+  background:radial-gradient(ellipse 370px 315px at 50% 70px,var(--iris-light),transparent 85%),radial-gradient(ellipse at 2% 80%,rgba(110,118,86,.08),transparent 58%),var(--iris-wall);
+}
+body[data-visual-style="irises"] .app-shell::before {
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(circle at 2px 3px,rgba(255,246,220,.018) .55px,transparent .8px),radial-gradient(circle at 5px 7px,rgba(0,0,0,.12) .6px,transparent .9px);
+  background-size:7px 11px,13px 17px;
+}
+body[data-visual-style="irises"] header {
+  min-height:248px;padding:27px 26px;align-items:flex-start;gap:0;border:0;border-radius:0;
+  background:radial-gradient(ellipse 260px 185px at 50% 12%,rgba(250,235,191,.12),transparent 90%);
+}
+body[data-visual-style="irises"] header .brand { color:var(--iris-gold);font-size:17px; }
+body[data-visual-style="irises"] header .meta,body[data-visual-style="irises"] header .meta b { color:var(--sub); }
+body[data-visual-style="irises"] .quote-wrap { display:none; }
+body[data-visual-style="irises"] .iris-scene { width:auto;height:178px;aspect-ratio:3840/2965;top:45%;max-width:40%; }
+.iris-window {
+  background:#151a15;padding:0;border:1px solid #c2ab77;
+  box-shadow:0 0 0 3px #322e24,0 0 0 4px #756440,0 0 0 7px #201f19,0 11px 20px rgba(0,0,0,.48),0 0 42px rgba(239,217,158,.08);
+}
+.iris-window-viewport { position:relative;inset:auto;width:100%;height:100%;clip-path:none;overflow:visible; }
+.iris-window::after { inset:-4px;box-shadow:inset 0 1px 0 rgba(252,229,172,.5),inset 0 -1px 0 #15150e; }
+body[data-visual-style="irises"] .iris-credit { bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap;text-align:center;font-size:9px;letter-spacing:.14em;color:var(--iris-gold); }
+body[data-visual-style="irises"] .iris-credit small { display:block;font-size:8px;letter-spacing:.18em;color:var(--sub);margin-top:5px; }
+.iris-wall-note { display:none;position:absolute;margin:0;pointer-events:none;user-select:none;max-width:22%;color:rgba(206,196,166,.31);font-family:Georgia,"SimSun",serif;text-shadow:0 1px 0 rgba(0,0,0,.5); }
+body[data-visual-style="irises"] .iris-wall-note { display:block; }
+.iris-wall-note p { margin:0;font-size:clamp(14px,1.55vw,19px);line-height:1.85;letter-spacing:.09em; }
+.iris-wall-note cite { display:block;font-style:normal;font-size:9px;line-height:1.8;margin-top:10px;letter-spacing:.12em;color:rgba(206,196,166,.38); }
+.iris-wall-note.note-color { left:26px;bottom:28px; }
+.iris-wall-note.note-mirror { right:26px;top:37px; }
+.iris-wall-note.note-praise { right:26px;bottom:27px; }
+body[data-visual-style="irises"] :is(.card,.archive-card,.literary-card,.advisor,.notebook-revisit,.notebook-archive) {
+  --bg:var(--soft);--text:var(--iris-card-text);--sub:var(--iris-card-sub);--accent:var(--iris-card-accent);--line:var(--iris-card-line);
+  --mt-on:var(--iris-card-on);--accent-soft:var(--iris-card-accent-soft);--green:var(--iris-card-green);
+  color:var(--text);box-shadow:0 6px 22px rgba(0,0,0,.16);
+}
+body[data-visual-style="irises"] .settings-panel,body[data-visual-style="irises"] .iris-art-dialog {
+  --bg:var(--soft);--text:var(--iris-card-text);--sub:var(--iris-card-sub);--accent:var(--iris-card-accent);--line:var(--iris-card-line);color:var(--text);
+  --mt-on:var(--iris-card-on);--accent-soft:var(--iris-card-accent-soft);--green:var(--iris-card-green);
+}
+body[data-visual-style="irises"] .streak { --text:var(--iris-leaf-text);--sub:var(--iris-leaf-text);--green:#b8c891;background:var(--iris-leaf);color:var(--iris-leaf-text); }
+body[data-visual-style="irises"] .page-tabs { border:1px solid var(--line);box-shadow:inset 0 1px 0 rgba(231,217,175,.045); }
+body[data-visual-style="irises"] .foot { background:linear-gradient(transparent,var(--iris-wall) 65%); }
+/* Static foil/raised varnish: highlights hug glyphs; there is no sweeping light animation. */
+body[data-visual-style="irises"] :is(header .brand,.iris-credit,.unit-head .sect,.page-title,.iris-poem) {
+  color:var(--iris-gold);text-shadow:0 -1px 0 rgba(255,238,190,.3),0 1px 0 #66502a,0 2px 1px rgba(0,0,0,.7),0 4px 8px rgba(0,0,0,.28);
+}
+@supports(background-clip:text) {
+  body[data-visual-style="irises"] :is(header .brand,.iris-credit,.unit-head .sect,.page-title,.iris-poem) {
+    background:linear-gradient(174deg,#f0dfb5 0%,#dac592 28%,#ae8d50 47%,#ead7a9 54%,#b69a61 78%,#e5ce9b 100%);
+    background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:0 1px 1px rgba(55,35,9,.16);filter:drop-shadow(0 -1px 0 rgba(255,234,179,.18)) drop-shadow(0 2px 0 rgba(0,0,0,.75));
+  }
+}
+.iris-poem { display:none;white-space:normal;font-family:Georgia,"SimSun",serif;line-height:2;letter-spacing:.1em; }
+.iris-poem-line { display:block;break-inside:avoid;margin-bottom:6px; }
+.iris-poem-line:last-child { margin-bottom:0; }
+body[data-visual-style="irises"] .iris-poem:empty { display:none; }
+@media(max-width:820px) {
+  body[data-visual-style="irises"] header { min-height:236px;padding:22px 16px; }
+  body[data-visual-style="irises"] .iris-scene { height:158px;max-width:40%;top:46%; }
+  .iris-wall-note { max-width:22%; }
+  .iris-wall-note p { font-size:12px;letter-spacing:.035em; }
+  .iris-wall-note cite { font-size:8px; }
+  .iris-wall-note.note-color { left:16px;bottom:23px; }
+  .iris-wall-note.note-mirror { right:16px;top:28px; }
+  .iris-wall-note.note-praise { right:16px;bottom:23px; }
+}
+@media(max-width:600px) {
+  body[data-visual-style="irises"] header { min-height:257px;padding:15px 12px 0; }
+  body[data-visual-style="irises"] header .brand { font-size:14px; }
+  body[data-visual-style="irises"] .iris-scene { height:154px;max-width:52%;top:53%; }
+  body[data-visual-style="irises"] .iris-credit { bottom:3px;font-size:8px; }
+  body[data-visual-style="irises"] .iris-credit small { font-size:7px;margin-top:3px; }
+  body[data-visual-style="irises"] .iris-wall-note { max-width:16%; }
+  .iris-wall-note p { font-size:10px;line-height:1.7;letter-spacing:0; }
+  .iris-wall-note cite { font-size:7px;line-height:1.5;margin-top:6px; }
+  .iris-wall-note.note-color { left:0;top:88px;bottom:auto; }
+  body[data-visual-style="irises"] .iris-wall-note.note-mirror { display:none; }
+  .iris-wall-note.note-praise { right:0;top:93px;bottom:auto; }
+}
+
+/* A quiet right-hand literary panel; the left inscriptions stay behind the exhibition. */
+body[data-visual-style="irises"] header { min-height:248px; }
+body[data-visual-style="irises"] .iris-scene { height:178px;top:45%; }
+body[data-visual-style="irises"] .iris-credit { bottom:10px; }
+body[data-visual-style="irises"] .iris-poem {
+  display:block;position:absolute;right:26px;top:18px;width:27%;margin:0;
+  font-size:11.5px;line-height:1.55;letter-spacing:.035em;
+}
+body[data-visual-style="irises"] .iris-wall-note { max-width:23%; }
+body[data-visual-style="irises"] .iris-wall-note p { font-size:11px;line-height:1.6;letter-spacing:.035em; }
+body[data-visual-style="irises"] .iris-wall-note cite { font-size:8px;line-height:1.6;margin-top:6px; }
+body[data-visual-style="irises"] .iris-wall-note.note-color { left:26px;top:86px;right:auto;bottom:auto; }
+body[data-visual-style="irises"] .iris-wall-note.note-mirror { left:26px;top:143px;right:auto;bottom:auto; }
+body[data-visual-style="irises"] .iris-wall-note.note-praise { left:26px;top:201px;right:auto;bottom:auto; }
+@media(max-width:820px) {
+  body[data-visual-style="irises"] header { min-height:280px; }
+  body[data-visual-style="irises"] .iris-scene { height:162px;top:43%; }
+  body[data-visual-style="irises"] .iris-poem { right:16px;top:16px;width:28%;font-size:11px;line-height:1.6;letter-spacing:0; }
+  body[data-visual-style="irises"] .iris-wall-note p { font-size:11px; }
+  body[data-visual-style="irises"] .iris-wall-note.note-color,body[data-visual-style="irises"] .iris-wall-note.note-mirror,body[data-visual-style="irises"] .iris-wall-note.note-praise { left:16px; }
+  body[data-visual-style="irises"] .iris-wall-note.note-mirror { display:none; }
+  body[data-visual-style="irises"] .iris-wall-note.note-praise { top:180px; }
+}
+@media(max-width:820px) {
+  body[data-visual-style="irises"] header { display:block;min-height:0;padding-bottom:17px; }
+  body[data-visual-style="irises"] .mast { width:100%;display:flex;align-items:baseline;justify-content:space-between;gap:12px; }
+  body[data-visual-style="irises"] header .brand { font-size:14px; }
+  body[data-visual-style="irises"] header .meta { margin:0;font-size:10px; }
+  body[data-visual-style="irises"] .iris-scene { height:128px;top:106px;max-width:52%; }
+  body[data-visual-style="irises"] .iris-credit { top:178px;bottom:auto; }
+  body[data-visual-style="irises"] .iris-poem { position:relative;right:auto;top:auto;width:auto;margin:179px 5px 0;font-size:11px;line-height:1.55;letter-spacing:.01em;column-count:2;column-gap:20px; }
+  body[data-visual-style="irises"] .iris-wall-note { max-width:16%; }
+  body[data-visual-style="irises"] .iris-wall-note p { font-size:9px;line-height:1.6; }
+  body[data-visual-style="irises"] .iris-wall-note cite { font-size:7px; }
+  body[data-visual-style="irises"] .iris-wall-note.note-color { left:0;top:69px; }
+  body[data-visual-style="irises"] .iris-wall-note.note-mirror { display:none; }
+  body[data-visual-style="irises"] .iris-wall-note.note-praise { left:auto;right:0;top:79px; }
+}
+.iris-wall-notes { display:none;pointer-events:none; }
+body[data-visual-style="irises"] .iris-wall-notes { display:grid;gap:8px;position:absolute;left:26px;top:86px;width:23%; }
+body[data-visual-style="irises"] .iris-wall-notes .iris-wall-note { position:static;left:auto;right:auto;top:auto;bottom:auto;max-width:100%; }
+body[data-visual-style="irises"] .iris-wall-notes .iris-wall-note p { font-size:10px;line-height:1.5;letter-spacing:.02em; }
+body[data-visual-style="irises"] .iris-wall-notes .iris-wall-note cite { font-size:7.5px;line-height:1.45;margin-top:4px;letter-spacing:.035em; }
+@media(max-width:820px) { body[data-visual-style="irises"] .iris-wall-notes { left:16px; } }
+@media(max-width:820px) {
+  body[data-visual-style="irises"] .iris-wall-notes { display:flex;justify-content:space-between;left:0;right:0;top:69px;width:auto; }
+  body[data-visual-style="irises"] .iris-wall-notes .iris-wall-note { width:16%;max-width:16%; }
+  body[data-visual-style="irises"] .iris-wall-notes .iris-wall-note p { font-size:9px; }
+  body[data-visual-style="irises"] .iris-wall-notes .iris-wall-note cite { font-size:7px; }
+}
+
+/* Shared exhibit control. Text is hidden, not erased; the painting still opens its source. */
+.museum-pure-toggle { display:none; }
+body:is([data-visual-style="irises"],[data-visual-style="breeze"]) .museum-pure-toggle {
+  display:block;position:absolute;right:0;bottom:0;z-index:4;min-width:44px;min-height:24px;padding:4px 9px;
+  border:1px solid var(--line);border-radius:4px;background:var(--mt-side);color:var(--sub);font-size:10px;line-height:1.4;cursor:pointer;
+}
+body:is([data-visual-style="irises"],[data-visual-style="breeze"]) .museum-pure-toggle:hover { color:var(--text);border-color:var(--iris-gold,var(--breeze-gold)); }
+body:is([data-visual-style="irises"],[data-visual-style="breeze"]).museum-pure header :is(.mast,.quote-wrap,.iris-credit,.iris-wall-notes,.iris-poem,.breeze-credit,.breeze-wall-notes,.breeze-poem) { display:none !important; }
+body:is([data-visual-style="irises"],[data-visual-style="breeze"]).museum-pure header { min-height:248px; }
+body:is([data-visual-style="irises"],[data-visual-style="breeze"]).museum-pure :is(.iris-scene,.breeze-scene) { height:180px;top:50%;width:auto;max-width:65%; }
+.iris-poem-line,.breeze-poem-line { white-space:pre-line; }
+@media(max-width:820px) {
+  body:is([data-visual-style="irises"],[data-visual-style="breeze"]).museum-pure header { min-height:224px; }
+  body:is([data-visual-style="irises"],[data-visual-style="breeze"]).museum-pure :is(.iris-scene,.breeze-scene) { height:164px; }
+}

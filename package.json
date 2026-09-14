@@ -1,0 +1,17 @@
+{
+  "name": "3566-open-source",
+  "version": "0.1.0",
+  "description": "3566 日知录：学习、记忆复盘与审美积累的本地优先桌面应用",
+  "license": "MIT",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "test:ui": "node tests/run-ui.cjs && node tests/run-ui.cjs --main",
+    "build:browser": "node scripts/build-browser.cjs",
+    "audit:release": "node scripts/audit-release.cjs",
+    "package:source": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-source.ps1"
+  },
+  "devDependencies": { "electron": "^44.3.0" }
+}

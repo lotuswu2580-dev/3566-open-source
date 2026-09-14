@@ -1,0 +1,15 @@
+.storage-alert[hidden], .storage-settings [hidden] { display: none !important; }
+.storage-alert { position: fixed; z-index: 180; left: 16px; right: 16px; bottom: 16px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #592a24; color: #fff8ee; box-shadow: 0 4px 20px #0003; border-radius: 10px; font-family: inherit; font-weight: 600; font-size: 13px; line-height: 1.65; }
+.storage-alert button { flex: none; cursor: pointer; border: 1px solid #fff7; color: inherit; background: transparent; border-radius: 6px; padding: 8px 12px; }
+.storage-settings { border-top: 1px solid var(--line, #ddd); padding-top: 22px; scroll-margin-top: 15px; }
+.storage-settings p { line-height: 1.75; margin: 10px 0; }
+.storage-status { font-size: 12px; overflow-wrap: anywhere; }
+.storage-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.storage-preview { border: 1px solid var(--line, #ddd); border-radius: 8px; padding: 14px; margin-top: 14px; font-size: 12px; }
+.storage-preview label { display: flex; align-items: flex-start; gap: 8px; margin: 10px 0; line-height: 1.65; }
+.storage-preview input { flex: none; margin-top: 4px; accent-color: var(--accent); }
+#storage-backups { max-height: 210px; overflow: auto; }
+.storage-backup-item { display: block; width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--line, #ddd); color: inherit; text-align: left; padding: 10px 2px; cursor: pointer; font: inherit; font-size: 12px; }
+.storage-backup-item:hover { color: var(--accent); }
+.storage-error-active .literary-save-hint, .storage-error-active #literary-save-hint { color: #a4372c; }
+@media (max-width: 620px) { .storage-alert { flex-direction: column; align-items: stretch; gap: 8px; left: 8px; right: 8px; bottom: 8px; } }

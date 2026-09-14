@@ -1,0 +1,26 @@
+.setting-help { margin-top:12px; padding-top:10px; border-top:1px solid var(--line); }
+.setting-help summary { cursor:pointer; color:var(--sub); font-size:11.5px; font-weight:700; line-height:1.8; }
+.setting-help p,.guide-card p { margin-top:10px; color:var(--sub); font-size:12.5px; line-height:1.95; overflow-wrap:anywhere; user-select:text; }
+.guide-entry .k3-button { margin:12px 8px 0 0; }
+.guide-actions { display:flex; gap:9px; flex-wrap:wrap; margin-top:14px; }
+.guide-dialog { box-sizing:border-box; width:min(680px,calc(100vw - 40px)); max-height:calc(100vh - 56px); padding:28px; border:1px solid var(--line); border-radius:20px; color:var(--text); background:var(--bg); box-shadow:0 30px 100px #0005; overflow:auto; overscroll-behavior:contain; margin:auto; }
+.guide-dialog::backdrop { background:#0a1015a8; backdrop-filter:blur(8px); }
+.guide-top { display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.guide-top h2 { font-size:20px; line-height:1.5; }
+.guide-progress { margin-top:28px; font-size:11px; letter-spacing:.2em; color:var(--sub); }
+.guide-stage { min-height:180px; padding:18px 0 12px; }
+.guide-stage h3 { font-size:25px; font-weight:600; line-height:1.5; }
+.guide-stage p { margin-top:15px; font-size:14px; line-height:2; color:var(--sub); }
+.guide-dialog > input { box-sizing:border-box; width:100%; margin-top:20px; padding:12px; border:1px solid var(--line); border-radius:8px; color:var(--text); background:var(--bg); }
+.guide-dialog > input::placeholder { color:var(--sub); opacity:1; }
+body[data-visual-style="irises"] .guide-dialog { --bg:var(--soft);--text:var(--iris-card-text);--sub:var(--iris-card-sub);--accent:var(--iris-card-accent);--line:var(--iris-card-line);--accent-soft:var(--iris-card-accent-soft);--green:var(--iris-card-green);--mt-on:var(--iris-card-on); }
+body[data-visual-style="breeze"] .guide-dialog { --bg:var(--soft);--text:var(--breeze-card-text);--sub:var(--breeze-card-sub);--accent:var(--breeze-card-accent);--line:var(--breeze-card-line);--accent-soft:var(--breeze-card-accent-soft);--green:var(--breeze-card-green);--mt-on:var(--breeze-card-on); }
+.guide-card { border-top:1px solid var(--line); padding:18px 0; }
+.guide-card h3 { font-size:15px; line-height:1.7; }
+.guide-card button { margin-top:12px; }
+.guide-card a { display:block; margin-top:10px; font-size:12px; color:var(--green); }
+.guide-dialog [hidden] { display:none !important; }
+.guide-dialog :focus-visible,.setting-help summary:focus-visible { outline:2px solid var(--green); outline-offset:4px; }
+.guide-entry { padding-top:18px; }
+@media(max-width:600px) { .guide-dialog { padding:20px; } .guide-stage h3 { font-size:21px; } .guide-stage { min-height:210px; } }
+@media(prefers-reduced-motion:reduce) { .guide-dialog::backdrop { backdrop-filter:none; } }

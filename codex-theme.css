@@ -1,0 +1,150 @@
+/* 3566 · Codex Edition — 编辑部 / 展签式视觉系统 */
+body.style-codex {
+  --bg: #eeeae2;
+  --soft: rgba(255,255,255,.54);
+  --line: rgba(25,24,21,.14);
+  --text: #191815;
+  --sub: #777269;
+  --accent: #b9372e;
+  --accent-soft: rgba(185,55,46,.09);
+  --green: #396b54;
+  --ink: #1d1c19;
+  --paper: #f7f4ed;
+  background: var(--bg);
+  letter-spacing: .01em;
+}
+
+.style-codex .app-shell {
+  max-width: none; padding: 0;
+  display: grid; grid-template-columns: 194px minmax(0,1fr);
+  grid-template-rows: 132px minmax(0,1fr);
+  background: var(--bg);
+}
+.style-codex header {
+  grid-column: 1 / 3; grid-row: 1; min-height: 0; margin: 0;
+  grid-template-columns: minmax(300px,.78fr) minmax(480px,1.22fr);
+  padding: 27px 40px 24px; gap: 42px;
+  background: var(--paper); border-bottom: 1px solid var(--line);
+}
+.style-codex .brand { color: var(--text); letter-spacing: .4em; }
+.style-codex .brand::after {
+  content: "CODEX EDITION"; display: inline-block; margin-left: 16px;
+  color: var(--accent); font-family: Georgia, serif; font-size: 8px;
+  letter-spacing: .18em; vertical-align: 2px;
+}
+.style-codex .meta { color: var(--sub); }
+.style-codex .quote-wrap { text-align: right; }
+.style-codex .quote { font-size: 19px; letter-spacing: .025em; }
+
+.style-codex .page-tabs {
+  grid-column: 1; grid-row: 2; align-self: stretch;
+  flex-direction: column; gap: 0; margin: 0; padding: 38px 24px 74px;
+  border-radius: 0; background: var(--ink); overflow: hidden;
+}
+.style-codex .page-tab {
+  position: relative; width: 100%; min-height: 66px; padding: 11px 12px 11px 48px;
+  border-radius: 0; color: rgba(255,255,255,.52); text-align: left;
+  font-size: 14px; letter-spacing: .15em;
+  transition: color .35s ease, transform .45s cubic-bezier(.2,.75,.2,1);
+}
+.style-codex .page-tab::before {
+  position: absolute; left: 5px; top: 50%; transform: translateY(-50%);
+  color: rgba(255,255,255,.22); font: 11px/1 Georgia, serif; letter-spacing: .08em;
+}
+.style-codex .page-tab:nth-child(1)::before { content: "01"; }
+.style-codex .page-tab:nth-child(2)::before { content: "02"; }
+.style-codex .page-tab:nth-child(3)::before { content: "03"; }
+.style-codex .page-tab:nth-child(4)::before { content: "04"; }
+.style-codex .page-tab::after {
+  content: ""; position: absolute; left: -24px; top: 17px; bottom: 17px; width: 3px;
+  background: var(--accent); transform: scaleY(0); transform-origin: center;
+  transition: transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.style-codex .page-tab:hover { color: rgba(255,255,255,.82); transform: translateX(3px); }
+.style-codex .page-tab.active { color: #fff; background: transparent; box-shadow: none; transform: translateX(7px); }
+.style-codex .page-tab.active::after { transform: scaleY(1); }
+.style-codex .settings-open { margin-top: auto; }
+
+.style-codex .pages { grid-column: 2; grid-row: 2; overflow: hidden; }
+.style-codex .page {
+  display: block; position: absolute; inset: 0; height: 100%; overflow: auto;
+  padding: 34px 38px 46px; opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translate3d(24px,0,0); filter: blur(3px);
+  transition: opacity .38s ease, transform .56s cubic-bezier(.2,.75,.2,1),
+    filter .45s ease, visibility 0s linear .56s;
+}
+.style-codex .page.active {
+  display: block; opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translate3d(0,0,0); filter: none;
+  animation: none; transition-delay: .07s, .07s, .07s, 0s;
+}
+.style-codex .page::-webkit-scrollbar { width: 7px; }
+.style-codex .page::-webkit-scrollbar-thumb { background: rgba(0,0,0,.18); border-radius: 0; }
+
+.style-codex .card {
+  background: var(--soft); border: 1px solid rgba(25,24,21,.1);
+  border-radius: 3px; box-shadow: none;
+}
+.style-codex .unit-head { margin-left: 0; }
+.style-codex .unit-head .sect, .style-codex .sect { color: var(--text); letter-spacing: .16em; }
+.style-codex .today-grid { grid-template-columns: minmax(440px,1.25fr) minmax(330px,.75fr); gap: 24px; }
+.style-codex #todos { min-height: 322px; }
+.style-codex .row { min-height: 49px; padding-left: 20px; padding-right: 20px; }
+.style-codex .box { width: 18px; height: 18px; border-radius: 2px; border-width: 1.5px; }
+.style-codex .inputrow { min-height: 52px; }
+
+.style-codex .streak {
+  color: #f8f4ec; background: var(--accent); border: none; padding: 17px 20px;
+}
+.style-codex .streak .ring .track { stroke: rgba(255,255,255,.2); }
+.style-codex .streak .ring .fill { stroke: #fff; }
+.style-codex .streak .t2, .style-codex .streak .t2 i { color: rgba(255,255,255,.74); }
+.style-codex .pomo { color: #f7f4ed; background: var(--ink); border: none; text-align: left; padding: 24px; }
+.style-codex .pomo .mode, .style-codex .pomo .count { color: rgba(255,255,255,.52); }
+.style-codex .pomo .time { font-family: Georgia, "Times New Roman", serif; font-size: clamp(58px,5vw,76px); }
+.style-codex .pomo .btns { justify-content: flex-start; }
+.style-codex .pomo button { color: #fff; background: rgba(255,255,255,.11); border-radius: 2px; }
+.style-codex .pomo button.primary { background: var(--accent); }
+.style-codex .pomo .count i { color: #f06d62; }
+.style-codex #rules-toggle { text-align: left; padding-left: 2px; letter-spacing: .13em; }
+
+.style-codex .page-kicker { color: var(--accent); font-family: Georgia, serif; font-size: 11px; letter-spacing: .24em; }
+.style-codex .page-title { font-size: clamp(27px,3vw,38px); letter-spacing: .01em; }
+.style-codex .review-intro, .style-codex .reward-intro, .style-codex .archive-intro { margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.style-codex .review-grid { grid-template-columns: minmax(360px,.9fr) minmax(460px,1.1fr); gap: 24px; }
+.style-codex .review-side .card { padding: 20px; }
+.style-codex .learn-compose { border-radius: 2px; border-width: 1px; background: rgba(255,255,255,.48); }
+.style-codex .learn-save, .style-codex .archive-filter { border-radius: 2px; }
+.style-codex .memory-path span { border-radius: 2px; }
+.style-codex .archive-filters { margin-left: 0; }
+.style-codex .archive-card, .style-codex .archive-empty, .style-codex .archive-model-feedback { border-radius: 2px; background: var(--soft); }
+.style-codex .reward-lock { border-radius: 3px; min-height: 410px; background: rgba(255,255,255,.32); }
+.style-codex .reward-lock .lock-mark { border-radius: 2px; background: var(--ink); color: #fff; }
+.style-codex .reward-mode-switch { margin-left: 0; border-radius: 2px; }
+.style-codex .reward-mode-btn, .style-codex .literary-button { border-radius: 2px; }
+.style-codex #reward.live-reward { border-radius: 3px; padding: 20px; column-gap: 28px; }
+.style-codex #reward .art { border-radius: 1px; background: #d8d3c9; }
+.style-codex #reward .art-title { font-size: 27px; }
+.style-codex #reward textarea { border-radius: 2px; border-width: 1px; background: rgba(255,255,255,.48); }
+.style-codex .advisor, .style-codex #advisor-input, .style-codex .advisor-chip { border-radius: 2px; }
+.style-codex .advisor { background: var(--soft); }
+.style-codex .advisor-msg { border-radius: 2px; }
+.style-codex .literary-card, .style-codex #literary-draft, .style-codex .literary-feedback{ border-radius: 2px; }
+.style-codex .meta-lane-btn{ border-radius: 2px; }
+.style-codex .literary-card { background: var(--soft); }
+.style-codex #literary-draft { border-width: 1px; background: rgba(255,255,255,.48); }
+.style-codex .foot {
+  left: 0; right: auto; width: 194px; z-index: 3;
+  color: rgba(255,255,255,.38); background: linear-gradient(transparent, var(--ink) 48%);
+  font-size: 9px; letter-spacing: .17em;
+}
+
+@media (max-width: 940px) {
+  .style-codex .app-shell { grid-template-columns: 150px minmax(0,1fr); grid-template-rows: 118px minmax(0,1fr); }
+  .style-codex header { grid-template-columns: 1fr 1.35fr; padding: 22px 26px; gap: 22px; }
+  .style-codex .quote { font-size: 16px; }
+  .style-codex .page-tabs { padding: 28px 16px 68px; }
+  .style-codex .page { height: 100%; padding: 28px 24px 42px; overflow: auto; }
+  .style-codex .today-grid, .style-codex .review-grid { grid-template-columns: 1fr; }
+  .style-codex .foot { width: 150px; }
+}
